@@ -125,11 +125,13 @@ don't
 done
 down
 downwards
+duh
 during
 e
 each
 edu
 eg
+eh
 eight
 either
 else
@@ -180,6 +182,7 @@ gone
 got
 gotten
 h
+ha
 had
 hadn't
 happens
@@ -243,6 +246,7 @@ it's
 its
 itself
 j
+jah
 just
 k
 keep
@@ -292,7 +296,7 @@ myself
 n
 name
 namely
-nd
+na
 near
 nearly
 necessary
@@ -322,6 +326,7 @@ of
 off
 often
 oh
+ooh
 ok
 okay
 old
@@ -563,6 +568,7 @@ wouldn't
 x
 y
 ya
+yah
 yeah
 yes
 yet
@@ -576,5 +582,6 @@ your
 yours
 yourself
 yourselves
+yuh
 z
 zero
