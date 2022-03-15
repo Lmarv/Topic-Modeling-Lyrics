@@ -961,8 +961,11 @@ ggplot(data = vizDataFrame,
 ######### topic proportions per genre ###################
 require(reshape2)
 # get mean topic proportions per genre 
-topic_proportion_per_genre <- aggregate(theta,
-by = list(genre = sample_data$tag), mean)
+
+# step necessary to put gospel and spiritual data in one column for visualization
+sample_data[sample_data == 'gospel' | sample_data == 'spiritual'] <- 'gospel + spiritual'
+
+topic_proportion_per_genre <- aggregate(theta, by = list(genre = sample_data$tag), mean)
 
 # set topic names to aggregated columns
 colnames(topic_proportion_per_genre)[2:(K+1)] <- topicNames
