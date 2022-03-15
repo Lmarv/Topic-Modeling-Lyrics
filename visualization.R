@@ -3,9 +3,9 @@ require(wordcloud2)
 
 #interesting topics to visualize as wordclouds, can be more or different ones
 
-topicToViz <- 3
+topicToViz <- 8
 
-topicToViz <- grep("shit", topicNames)[1]
+topicToViz <- grep("fuck", topicNames)[1]
 
 top40terms <- sort(tmResult$terms[topicToViz, ], decreasing = TRUE)[1:40]
 words <- names(top40terms)
@@ -14,9 +14,9 @@ probabilities <- sort(tmResult$terms[topicToViz, ], decreasing = TRUE)[1:40]
 
 wordcloud2(data.frame(words, probabilities), shuffle = FALSE)
 
-topicToViz2 <- 12
+topicToViz2 <- 10
 
-topicToViz2 <- grep("love", topicNames2)[1]
+topicToViz2 <- grep("world", topicNames2)[1]
 
 top40terms2 <- sort(tmResult$terms[topicToViz2, ], decreasing = TRUE)[1:40]
 words2 <- names(top40terms2)
@@ -25,9 +25,9 @@ probabilities2 <- sort(tmResult$terms[topicToViz2, ], decreasing = TRUE)[1:40]
 
 wordcloud2(data.frame(words2, probabilities2), shuffle = FALSE)
 
-topicToViz3 <- 1
+topicToViz3 <- 12
 
-topicToViz3 <- grep("night", topicNames)[1]
+topicToViz3 <- grep("sun", topicNames)[1]
 
 top40terms3 <- sort(tmResult$terms[topicToViz3, ], decreasing = TRUE)[1:40]
 words3 <- names(top40terms3)
@@ -35,6 +35,50 @@ words3 <- names(top40terms3)
 probabilities3 <- sort(tmResult$terms[topicToViz3, ], decreasing = TRUE)[1:40]
 
 wordcloud2(data.frame(words3, probabilities3), shuffle = FALSE)
+
+topicToViz4 <- 3
+
+topicToViz4 <- grep("good", topicNames)[1]
+
+top40terms4 <- sort(tmResult$terms[topicToViz4, ], decreasing = TRUE)[1:40]
+words4 <- names(top40terms4)
+
+probabilities4 <- sort(tmResult$terms[topicToViz4, ], decreasing = TRUE)[1:40]
+
+wordcloud2(data.frame(words4, probabilities4), shuffle = FALSE)
+
+topicToViz5 <- 6
+
+topicToViz5 <- grep("time", topicNames)[1]
+
+top40terms5 <- sort(tmResult$terms[topicToViz5, ], decreasing = TRUE)[1:40]
+words5 <- names(top40terms5)
+
+probabilities5 <- sort(tmResult$terms[topicToViz5, ], decreasing = TRUE)[1:40]
+
+wordcloud2(data.frame(words5, probabilities5), shuffle = FALSE)
+
+topicToViz6 <- 5
+
+topicToViz6 <- grep("nigga", topicNames)[1]
+
+top40terms6 <- sort(tmResult$terms[topicToViz6, ], decreasing = TRUE)[1:40]
+words6 <- names(top40terms6)
+
+probabilities6 <- sort(tmResult$terms[topicToViz6, ], decreasing = TRUE)[1:40]
+
+wordcloud2(data.frame(words6, probabilities6), shuffle = FALSE)
+
+topicToViz7 <- 1
+
+topicToViz7 <- grep("home", topicNames)[1]
+
+top40terms7 <- sort(tmResult$terms[topicToViz7, ], decreasing = TRUE)[1:40]
+words7 <- names(top40terms7)
+
+probabilities7 <- sort(tmResult$terms[topicToViz7, ], decreasing = TRUE)[1:40]
+
+wordcloud2(data.frame(words7, probabilities7), shuffle = FALSE)
 
 ########################### Topic proportions  ###################################################
 
