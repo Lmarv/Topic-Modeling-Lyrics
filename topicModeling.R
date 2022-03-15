@@ -20,3 +20,14 @@ terms(topicModel, 10)
 
 top5termsPerTopic <- terms(topicModel, 5)
 topicNames <- apply(top5termsPerTopic, 2, paste, collapse = " ")
+
+
+###### LDAvis ############
+
+library(LDAvis)
+library("tsne")
+svd_tsne <- function(x) tsne(svd(x)$u)
+json <- createJSON(phi = beta, theta = theta,
+                   doc.length = rowSums(DTM), vocab = colnames(DTM), term.frequency = colSums(DTM),
+                   mds.method = svd_tsne, plot.opts = list(xlab = "", ylab = ""))
+serVis(json)

@@ -956,3 +956,26 @@ ggplot(data = vizDataFrame,
   coord_flip() +
   facet_wrap(~ kids, ncol = 1)
 
+
+
+######### topic proportions per genre ###################
+require(reshape2)
+# get mean topic proportions per genre 
+topic_proportion_per_genre <- aggregate(theta,
+by = list(genre = sample_data$tag), mean)
+
+# set topic names to aggregated columns
+colnames(topic_proportion_per_genre)[2:(K+1)] <- topicNames
+
+# reshape data frame
+vizDataFrame <- melt(topic_proportion_per_genre, id.vars = "genre") 
+
+# plot topic proportions per genre as bar plot
+require(pals)
+ggplot(vizDataFrame,
+       aes(x=genre, y=value, fill=variable)) +
+  geom_bar(stat = "identity") + ylab("proportion") +
+  scale_fill_manual(values = paste0(alphabet(20), "FF"), name = "genre") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+
