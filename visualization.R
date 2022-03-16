@@ -1,11 +1,15 @@
 ####################visualization wordclouds#########################################
 require(wordcloud2)
 
-#interesting topics to visualize as wordclouds, can be more or different ones
+#Topic to visualize as wordcloud. Set different Topic number and topic word for other topic to visualize.
 
-topicToViz <- 8
+topic <- 9
 
-topicToViz <- grep("fuck", topicNames)[1]
+word <- 'baby'
+
+topicToViz <- topic
+
+topicToViz <- grep(word, topicNames)[1]
 
 top40terms <- sort(tmResult$terms[topicToViz, ], decreasing = TRUE)[1:40]
 words <- names(top40terms)
@@ -14,79 +18,12 @@ probabilities <- sort(tmResult$terms[topicToViz, ], decreasing = TRUE)[1:40]
 
 wordcloud2(data.frame(words, probabilities), shuffle = FALSE)
 
-topicToViz2 <- 10
-
-topicToViz2 <- grep("world", topicNames2)[1]
-
-top40terms2 <- sort(tmResult$terms[topicToViz2, ], decreasing = TRUE)[1:40]
-words2 <- names(top40terms2)
-
-probabilities2 <- sort(tmResult$terms[topicToViz2, ], decreasing = TRUE)[1:40]
-
-wordcloud2(data.frame(words2, probabilities2), shuffle = FALSE)
-
-topicToViz3 <- 12
-
-topicToViz3 <- grep("sun", topicNames)[1]
-
-top40terms3 <- sort(tmResult$terms[topicToViz3, ], decreasing = TRUE)[1:40]
-words3 <- names(top40terms3)
-
-probabilities3 <- sort(tmResult$terms[topicToViz3, ], decreasing = TRUE)[1:40]
-
-wordcloud2(data.frame(words3, probabilities3), shuffle = FALSE)
-
-topicToViz4 <- 3
-
-topicToViz4 <- grep("good", topicNames)[1]
-
-top40terms4 <- sort(tmResult$terms[topicToViz4, ], decreasing = TRUE)[1:40]
-words4 <- names(top40terms4)
-
-probabilities4 <- sort(tmResult$terms[topicToViz4, ], decreasing = TRUE)[1:40]
-
-wordcloud2(data.frame(words4, probabilities4), shuffle = FALSE)
-
-topicToViz5 <- 6
-
-topicToViz5 <- grep("time", topicNames)[1]
-
-top40terms5 <- sort(tmResult$terms[topicToViz5, ], decreasing = TRUE)[1:40]
-words5 <- names(top40terms5)
-
-probabilities5 <- sort(tmResult$terms[topicToViz5, ], decreasing = TRUE)[1:40]
-
-wordcloud2(data.frame(words5, probabilities5), shuffle = FALSE)
-
-topicToViz6 <- 5
-
-topicToViz6 <- grep("nigga", topicNames)[1]
-
-top40terms6 <- sort(tmResult$terms[topicToViz6, ], decreasing = TRUE)[1:40]
-words6 <- names(top40terms6)
-
-probabilities6 <- sort(tmResult$terms[topicToViz6, ], decreasing = TRUE)[1:40]
-
-wordcloud2(data.frame(words6, probabilities6), shuffle = FALSE)
-
-topicToViz7 <- 1
-
-topicToViz7 <- grep("home", topicNames)[1]
-
-top40terms7 <- sort(tmResult$terms[topicToViz7, ], decreasing = TRUE)[1:40]
-words7 <- names(top40terms7)
-
-probabilities7 <- sort(tmResult$terms[topicToViz7, ], decreasing = TRUE)[1:40]
-
-wordcloud2(data.frame(words7, probabilities7), shuffle = FALSE)
 
 ########################### Topic proportions  ###################################################
 
 #This part inspects the proportions of all topics in the sample corpus.
 #First option gives the proportions of the topic in the sample corpus, second options calculates the number one topic in all documents,
 # listing all topics and how many documents (songs), have that topic as the most likely topic
-
-
 
 topicNames <- apply(lda::top.topic.words(beta, 5, by.score = T),
                     2, paste, collapse = " ")
@@ -160,7 +97,7 @@ library("reshape2")
 library("ggplot2")
 
 #renaming the columns to the top5 words of the topic
-colnames(topicProportionsPopGenre) <- topicNames  #-> können wir noch anders machen
+colnames(topicProportionsPopGenre) <- topicNames
 
 #visualize data as horizontal bar plots
 vizDataFrame <- melt(cbind(
@@ -220,7 +157,7 @@ topicProportionsRapGenre$`Topic 11` <- mean(topicProportionExamples$`Topic 11`)
 topicProportionsRapGenre$`Topic 12` <- mean(topicProportionExamples$`Topic 12`)
 
 #renaming the columns to the top5 words of the topic
-colnames(topicProportionsRapGenre) <- topicNames  #-> können wir noch anders machen
+colnames(topicProportionsRapGenre) <- topicNames
 
 #visualize data as horizontal bar plots
 vizDataFrame <- melt(cbind(
@@ -280,7 +217,7 @@ topicProportionsReggaeGenre$`Topic 11` <- mean(topicProportionExamples$`Topic 11
 topicProportionsReggaeGenre$`Topic 12` <- mean(topicProportionExamples$`Topic 12`)
 
 #renaming the columns to the top5 words of the topic
-colnames(topicProportionsReggaeGenre) <- topicNames  #-> können wir noch anders machen
+colnames(topicProportionsReggaeGenre) <- topicNames
 
 #visualize data as horizontal bar plots
 vizDataFrame <- melt(cbind(
@@ -340,7 +277,7 @@ topicProportionsRnbGenre$`Topic 11` <- mean(topicProportionExamples$`Topic 11`)
 topicProportionsRnbGenre$`Topic 12` <- mean(topicProportionExamples$`Topic 12`)
 
 #renaming the columns to the top5 words of the topic
-colnames(topicProportionsRnbGenre) <- topicNames  #-> können wir noch anders machen
+colnames(topicProportionsRnbGenre) <- topicNames
 
 #visualize data as horizontal bar plots
 vizDataFrame <- melt(cbind(
@@ -400,7 +337,7 @@ topicProportionsBluesGenre$`Topic 11` <- mean(topicProportionExamples$`Topic 11`
 topicProportionsBluesGenre$`Topic 12` <- mean(topicProportionExamples$`Topic 12`)
 
 #renaming the columns to the top5 words of the topic
-colnames(topicProportionsBluesGenre) <- topicNames  #-> können wir noch anders machen
+colnames(topicProportionsBluesGenre) <- topicNames
 
 #visualize data as horizontal bar plots
 vizDataFrame <- melt(cbind(
@@ -460,7 +397,7 @@ topicProportionsCountryGenre$`Topic 11` <- mean(topicProportionExamples$`Topic 1
 topicProportionsCountryGenre$`Topic 12` <- mean(topicProportionExamples$`Topic 12`)
 
 #renaming the columns to the top5 words of the topic
-colnames(topicProportionsCountryGenre) <- topicNames  #-> können wir noch anders machen
+colnames(topicProportionsCountryGenre) <- topicNames
 
 #visualize data as horizontal bar plots
 vizDataFrame <- melt(cbind(
@@ -520,7 +457,7 @@ topicProportionsFolkGenre$`Topic 11` <- mean(topicProportionExamples$`Topic 11`)
 topicProportionsFolkGenre$`Topic 12` <- mean(topicProportionExamples$`Topic 12`)
 
 #renaming the columns to the top5 words of the topic
-colnames(topicProportionsFolkGenre) <- topicNames  #-> können wir noch anders machen
+colnames(topicProportionsFolkGenre) <- topicNames 
 
 #visualize data as horizontal bar plots
 vizDataFrame <- melt(cbind(
@@ -580,7 +517,7 @@ topicProportionsGospelGenre$`Topic 11` <- mean(topicProportionExamples$`Topic 11
 topicProportionsGospelGenre$`Topic 12` <- mean(topicProportionExamples$`Topic 12`)
 
 #renaming the columns to the top5 words of the topic
-colnames(topicProportionsGospelGenre) <- topicNames  #-> können wir noch anders machen
+colnames(topicProportionsGospelGenre) <- topicNames 
 
 #visualize data as horizontal bar plots
 vizDataFrame <- melt(cbind(
@@ -640,7 +577,7 @@ topicProportionsRockGenre$`Topic 11` <- mean(topicProportionExamples$`Topic 11`)
 topicProportionsRockGenre$`Topic 12` <- mean(topicProportionExamples$`Topic 12`)
 
 #renaming the columns to the top5 words of the topic
-colnames(topicProportionsRockGenre) <- topicNames  #-> können wir noch anders machen
+colnames(topicProportionsRockGenre) <- topicNames 
 
 #visualize data as horizontal bar plots
 vizDataFrame <- melt(cbind(
@@ -700,7 +637,7 @@ topicProportionsHeavyMetalGenre$`Topic 11` <- mean(topicProportionExamples$`Topi
 topicProportionsHeavyMetalGenre$`Topic 12` <- mean(topicProportionExamples$`Topic 12`)
 
 #renaming the columns to the top5 words of the topic
-colnames(topicProportionsHeavyMetalGenre) <- topicNames  #-> können wir noch anders machen
+colnames(topicProportionsHeavyMetalGenre) <- topicNames 
 
 #visualize data as horizontal bar plots
 vizDataFrame <- melt(cbind(
@@ -760,7 +697,7 @@ topicProportionsHiphopGenre$`Topic 11` <- mean(topicProportionExamples$`Topic 11
 topicProportionsHiphopGenre$`Topic 12` <- mean(topicProportionExamples$`Topic 12`)
 
 #renaming the columns to the top5 words of the topic
-colnames(topicProportionsHiphopGenre) <- topicNames  #-> können wir noch anders machen
+colnames(topicProportionsHiphopGenre) <- topicNames 
 
 #visualize data as horizontal bar plots
 vizDataFrame <- melt(cbind(
@@ -821,7 +758,7 @@ topicProportionsSoulGenre$`Topic 11` <- mean(topicProportionExamples$`Topic 11`)
 topicProportionsSoulGenre$`Topic 12` <- mean(topicProportionExamples$`Topic 12`)
 
 #renaming the columns to the top5 words of the topic
-colnames(topicProportionsSoulGenre) <- topicNames  #-> können wir noch anders machen
+colnames(topicProportionsSoulGenre) <- topicNames 
 
 #visualize data as horizontal bar plots
 vizDataFrame <- melt(cbind(
@@ -881,7 +818,7 @@ topicProportionsJazzGenre$`Topic 11` <- mean(topicProportionExamples$`Topic 11`)
 topicProportionsJazzGenre$`Topic 12` <- mean(topicProportionExamples$`Topic 12`)
 
 #renaming the columns to the top5 words of the topic
-colnames(topicProportionsJazzGenre) <- topicNames  #-> können wir noch anders machen
+colnames(topicProportionsJazzGenre) <- topicNames 
 
 #visualize data as horizontal bar plots
 vizDataFrame <- melt(cbind(
@@ -941,7 +878,7 @@ topicProportionsKidsGenre$`Topic 11` <- mean(topicProportionExamples$`Topic 11`)
 topicProportionsKidsGenre$`Topic 12` <- mean(topicProportionExamples$`Topic 12`)
 
 #renaming the columns to the top5 words of the topic
-colnames(topicProportionsKidsGenre) <- topicNames  #-> können wir noch anders machen
+colnames(topicProportionsKidsGenre) <- topicNames
 
 #visualize data as horizontal bar plots
 vizDataFrame <- melt(cbind(

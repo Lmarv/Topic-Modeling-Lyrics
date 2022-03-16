@@ -36,4 +36,4 @@ for i in range(df.shape[0]):
     
     
 '''Preprocessed corpus stored in new CSV file.'''
-df.to_csv(r'tagged_corpus_preprocessed3.csv', sep = ';')
+df.to_csv(r'tagged_corpus_preprocessed.csv', sep = ';')

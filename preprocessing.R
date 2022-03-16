@@ -9,7 +9,6 @@ data <- read.csv("tagged_corpus_preprocessed.csv", header = TRUE, sep = ";", enc
 
 data <- data %>% filter(!grepl('artist', artist))
 data$X <- NULL
-data$Unnamed..0 <- NULL
 
 #deleting entries with "noTag" tag
 data_without_noTag <- data %>% filter(!grepl('noTag', tag))
