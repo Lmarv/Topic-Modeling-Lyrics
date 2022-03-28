@@ -1,4 +1,4 @@
-# script to retrieve lists of the top albums and their artists from HTMLs previously craped from LastFM 
+# script to retrieve lists of the top albums and their artists from HTMLs previously scraped from LastFM 
 # author: Julia Güttler
 
 from bs4 import BeautifulSoup
