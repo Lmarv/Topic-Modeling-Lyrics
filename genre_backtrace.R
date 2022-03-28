@@ -43,6 +43,6 @@ sim_df$identified <- ifelse(sim_df$genre == sim_df$top1 | sim_df$genre == sim_df
                               sim_df$genre == sim_df$top3, TRUE, FALSE)
 
 #calculate the ratio of correctly identified genres
-correctly_identified <- length(which(sim_df$identified)) / length(sample_data)
+correctly_identified <- length(which(sim_df$identified)) / nrow(sample_data)
 
-print(paste(paste("In", correctly_identified), "% of the songs the correct genres occur in the top 3 most similar genres regarding to the calculated theta values."))
+print(paste(paste("In", format(round(correctly_identified*100, 2), nsmall = 2)), "% of the songs the correct genres occur in the top 3 most similar genres regarding to the calculated theta values."))
