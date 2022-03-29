@@ -1,4 +1,5 @@
 library(dplyr)
+library(lsa)
 
 #function to calculate cosine similarity between a single song and the means of genres to find 
 #the most similar genres
